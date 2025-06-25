@@ -1,0 +1,10 @@
+/build-*
+/cmake-build-*
+.idea
+/.vscode
+.env
+/.vars
+/.cache
+/infer-out
+.DS_Store
+/rpm

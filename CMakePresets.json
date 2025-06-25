@@ -1,0 +1,65 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "clang-dev",
+      "binaryDir": "${sourceDir}/build-clang",
+      "generator": "Ninja",
+      "environment": {},
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+      }
+    },
+    {
+      "name": "asan",
+      "binaryDir": "${sourceDir}/build-asan",
+      "generator": "Ninja",
+      "environment": {},
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "LIBRAFT_SANITIZE": "Address",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+      }
+    },
+    {
+      "name": "tsan",
+      "binaryDir": "${sourceDir}/build-tsan",
+      "generator": "Ninja",
+      "environment": {},
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "LIBRAFT_SANITIZE": "Thread",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+      }
+    },
+    {
+      "name": "coverage",
+      "binaryDir": "${sourceDir}/build-coverage",
+      "generator": "Ninja",
+      "environment": {},
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "ccache",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "-fcoverage-mapping -fprofile-instr-generate -ftest-coverage -fprofile-arcs",
+        "CMAKE_CXX_FLAGS": "-fcoverage-mapping -fprofile-instr-generate -ftest-coverage -fprofile-arcs",
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+      }
+    }
+  ]
+}
